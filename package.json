@@ -1,0 +1,33 @@
+{
+  "name": "rabbitmq-mqtt-on-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misupopo/rabbitmq-mqtt-on-docker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misupopo/rabbitmq-mqtt-on-docker/issues"
+  },
+  "homepage": "https://github.com/misupopo/rabbitmq-mqtt-on-docker#readme",
+  "dependencies": {
+    "amqp-connection-manager": "^3.5.2",
+    "amqplib": "^0.8.0"
+  },
+  "devDependencies": {
+    "@types/amqp-connection-manager": "^2.0.12",
+    "@types/amqplib": "^0.8.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.2",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  }
+}
