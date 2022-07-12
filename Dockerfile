@@ -11,6 +11,9 @@ COPY rabbitmq.config /etc/rabbitmq/rabbitmq.config
 RUN chown -R rabbitmq:rabbitmq /var/lib/rabbitmq /etc/rabbitmq &&\
 	chmod 777 /var/lib/rabbitmq /etc/rabbitmq
 
+# 15672 は GUI
 EXPOSE 15672
+# 5672 は スプリプトのコネクションポート番号
 EXPOSE 5672
+# mqtt のポート番号
 EXPOSE 1883
