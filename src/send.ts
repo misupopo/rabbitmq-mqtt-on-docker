@@ -26,7 +26,8 @@ import * as amqplib from 'amqplib';
     await send(sendQueueName, Buffer.from(JSON.stringify(message)));
 
     console.log('message send success', message);
-    process.exit(0);
+    // process.exit(0)を実行してしまうと送信する前に落ちてしまう
+    // process.exit(0);
   } catch (e) {
     console.log(e);
   }
