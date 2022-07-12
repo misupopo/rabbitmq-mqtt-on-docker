@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "send": "ts-node src/send.ts",
-    "receive": "ts-node src/receive.ts"
+    "send:amqp": "ts-node src/amqp/send.ts",
+    "receive:amqp": "ts-node src/amqp/receive.ts"
   },
   "repository": {
     "type": "git",
