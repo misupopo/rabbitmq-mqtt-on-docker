@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "send": "ts-node src/send.ts"
+    "send": "ts-node src/send.ts",
+    "receive": "ts-node src/receive.ts"
   },
   "repository": {
     "type": "git",

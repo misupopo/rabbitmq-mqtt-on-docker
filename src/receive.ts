@@ -1,4 +1,5 @@
 import * as amqplib from 'amqplib';
+import { on } from "events";
 
 (async () => {
   const virtualHost = 'test';
@@ -8,24 +9,14 @@ import * as amqplib from 'amqplib';
   const sendQueueName = 'test-send-queue';
 
   try {
-    console.log(`send start ${url}`);
     const connection = await amqplib.connect(url);
     const channel = await connection.createChannel();
 
-    const send = async (queue: string, msg: Buffer) => {
-      await channel.assertQueue(queue, {durable: true});
-      channel.sendToQueue(queue, msg)
-    }
+    await channel.consume(sendQueueName, (message) => {
+      console.log(message);
+    });
 
-    const message = {
-      message: 'test',
-      date: new Date().getTime()
-    };
-
-    // 送るメッセージの内容
-    await send(sendQueueName, Buffer.from(JSON.stringify(message)));
-
-    console.log('message send success', message);
+    console.log('received message');
     process.exit(0);
   } catch (e) {
     console.log(e);
