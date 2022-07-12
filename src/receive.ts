@@ -12,12 +12,16 @@ import { on } from "events";
     const connection = await amqplib.connect(url);
     const channel = await connection.createChannel();
 
-    await channel.consume(sendQueueName, (message) => {
-      console.log(message);
+    await channel.consume(sendQueueName, async (message) => {
+      console.log(message && message.content.toString());
+
+      if (message) {
+        channel.ack(message);
+      }
     });
 
     console.log('received message');
-    process.exit(0);
+    // process.exit(0);
   } catch (e) {
     console.log(e);
   }
